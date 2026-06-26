@@ -2,41 +2,42 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <title>QG 么Delta - Painel de Comando</title>
     <style>
         body { 
-            margin: 0; 
-            padding: 0; 
-            background: #000; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh;
+            margin: 0; padding: 0; background: #000; 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; overflow: hidden;
         }
-        /* Aqui você coloca o link da sua imagem de fundo */
         .qg-container {
-            width: 1000px;
-            height: 560px;
-            background-image: url('LINK_DA_SUA_IMAGEM_AQUI');
-            background-size: cover;
+            width: 1000px; height: 560px;
+            background-image: url('https://raw.githubusercontent.com/Danilosp23/painel-delta/main/15c1d612-e331-4946-b075-ff8640e2d50d.png');
+            background-size: contain; background-repeat: no-repeat;
             position: relative;
         }
-        .btn-overlay {
+        /* Botões invisíveis posicionados sobre a imagem */
+        .btn-link {
             position: absolute;
-            background: transparent;
-            border: 2px solid transparent;
-            cursor: pointer;
-            /* Ajuste essas posições conforme a imagem */
-            width: 280px;
-            height: 80px;
+            background: transparent; border: none; cursor: pointer;
+            width: 280px; height: 75px;
         }
-        .btn-overlay:hover { border: 2px solid #ff9900; }
+        .btn-link:hover { border: 2px solid rgba(255, 153, 0, 0.5); }
     </style>
 </head>
 <body>
 
 <div class="qg-container">
-    <button class="btn-overlay" style="top: 200px; left: 60px;" onclick="alert('Visualizar Membros')"></button>
-    <button class="btn-overlay" style="top: 200px; left: 360px;" onclick="alert('Dados de Treino')"></button>
+    <button class="btn-link" style="top: 190px; left: 55px;" onclick="alert('Visualizar Membros')"></button>
+    <button class="btn-link" style="top: 190px; left: 360px;" onclick="alert('Dados de Treino')"></button>
+    <button class="btn-link" style="top: 190px; left: 665px;" onclick="alert('Estatísticas')"></button>
+    
+    <button class="btn-link" style="top: 290px; left: 55px;" onclick="alert('Gerenciar Recrutas')"></button>
+    <button class="btn-link" style="top: 290px; left: 360px;" onclick="alert('Configurações')"></button>
+    <button class="btn-link" style="top: 290px; left: 665px;" onclick="alert('Acesso Marechal')"></button>
+    
+    <button class="btn-link" style="top: 390px; left: 55px;" onclick="alert('Estratégias')"></button>
+    <button class="btn-link" style="top: 390px; left: 360px;" onclick="alert('Histórico')"></button>
+    <button class="btn-link" style="top: 390px; left: 665px;" onclick="alert('Comunicados')"></button>
 </div>
 
 </body>
