@@ -1,0 +1,67 @@
+HTML
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Tático | 么Delta</title>
+    <style>
+        body { background-color: #0d0d0d; color: #d1d1d1; font-family: 'Oswald', sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; border: 1px solid #333; padding: 20px; background: #161616; }
+        h1 { color: #ff9900; text-transform: uppercase; border-bottom: 2px solid #ff9900; display: inline-block; }
+        .card { background: #1a1a1a; padding: 20px; margin-top: 20px; border-left: 4px solid #ff9900; }
+        .btn-panel { background: #2a2a2a; color: #fff; border: 1px solid #ff9900; padding: 12px 20px; margin: 5px; cursor: pointer; text-transform: uppercase; font-weight: bold; transition: 0.3s; width: 100%; text-align: left; }
+        .btn-panel:hover { background: #ff9900; color: #000; }
+        .hidden { display: none; }
+        input { padding: 10px; background: #000; border: 1px solid #555; color: #fff; width: 90%; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>QG 么Delta - Painel de Comando</h1>
+
+    <div class="card" id="loginArea">
+        <h3>Autenticação Tática</h3>
+        <input type="password" id="senhaAcesso" placeholder="Digite sua senha individual">
+        <button class="btn-panel" onclick="verificarPatente()">LOGAR NO SISTEMA</button>
+    </div>
+
+    <div id="painelAdmin" class="card hidden">
+        <h3>Painel de Gestão - Acesso Autorizado</h3>
+        <button class="btn-panel" onclick="alert('Função BANIR liberada.')">>> BANIR JOGADOR</button>
+        <button class="btn-panel" onclick="alert('Funcionalidade de recrutamento ativa.')">>> GERIR RECRUTAS</button>
+        <button class="btn-panel" onclick="location.reload()">>> SAIR DO SISTEMA</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button class="btn-panel" onclick="window.open('https://discord.gg/ta2QdaGr', '_blank')">>> DISCORD OFICIAL DO CLÃ</button>
+    </div>
+</div>
+
+<script>
+    function verificarPatente() {
+        const senha = document.getElementById("senhaAcesso").value;
+        const painel = document.getElementById("painelAdmin");
+        const loginArea = document.getElementById("loginArea");
+
+        // Lista de administradores autorizados
+        const adminConfig = {
+            "Radical2026": "Marechal Danilo",
+            "Daredevil2026": "Daredevilsp",
+            "NaLapa2026": "NaLapa",
+            "Zabu2026": "zabuzin",
+            "Cyber2026": "cybershot"
+        };
+
+        if (adminConfig[senha]) {
+            alert("Acesso autorizado: " + adminConfig[senha]);
+            painel.classList.remove("hidden");
+            loginArea.classList.add("hidden");
+        } else {
+            alert("Acesso Negado! Identificação não reconhecida.");
+        }
+    }
+</script>
+
+</body>
+</html>
