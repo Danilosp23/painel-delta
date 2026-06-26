@@ -5,17 +5,18 @@
     <title>QG 么Delta - Painel de Comando</title>
     <style>
         body { margin: 0; background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        
-        /* Área que contém a imagem */
         .qg-container {
             width: 1000px; height: 560px;
             background-image: url('https://raw.githubusercontent.com/Danilosp23/painel-delta/main/15c1d612-e331-4946-b075-ff8640e2d50d.png');
             background-size: contain; background-repeat: no-repeat;
             position: relative;
         }
-
-        /* Área de Login que fica sobre a imagem */
         #loginArea { position: absolute; top: 200px; left: 350px; background: rgba(0,0,0,0.8); padding: 20px; border: 1px solid #ff9900; }
+        
+        /* Área dos botões que aparecerá após o login */
+        #painelBotoes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .btn-invisivel { position: absolute; background: transparent; border: none; cursor: pointer; width: 280px; height: 75px; }
+        .btn-invisivel:hover { border: 2px solid rgba(255, 153, 0, 0.5); }
         .hidden { display: none; }
     </style>
 </head>
@@ -27,17 +28,20 @@
         <input type="password" id="senhaAcesso" placeholder="Senha">
         <button onclick="verificarPatente()">LOGAR</button>
     </div>
+
+    <div id="painelBotoes" class="hidden">
+        <button class="btn-invisivel" style="top: 190px; left: 55px;" onclick="alert('Funcionalidade: Membros')"></button>
+        </div>
 </div>
 
 <script>
     function verificarPatente() {
         const senha = document.getElementById("senhaAcesso").value;
-        // Coloque suas senhas aqui
         const autorizados = ["Radical2026", "Daredevil2026", "NaLapa2026", "Zabu2026", "Cyber2026"];
         
         if (autorizados.includes(senha)) {
-            alert("Acesso Autorizado.");
             document.getElementById("loginArea").classList.add("hidden");
+            document.getElementById("painelBotoes").classList.remove("hidden");
         } else {
             alert("Acesso Negado!");
         }
